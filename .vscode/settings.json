@@ -1,0 +1,5 @@
+{
+    "workbench.tips.enabled": false,
+    "extensions.ignoreRecommendations": true,
+    "python.formatting.provider": "black"
+}
