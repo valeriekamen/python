@@ -42,6 +42,31 @@ class LinkedList:
             this_node = this_node.next
             len_list += 1
 
+    def make_list_even_then_odd_better(self):
+        node_before_moving_index = 0
+        if not self.head.next:
+            return
+
+        len_list = self.print_list_and_len()
+
+        for i in range(0, math.floor(len_list / 2)):
+            node_before_move = self.head
+            moving_node = node_before_move.next
+            for i in range(0, node_before_moving_index):
+                moving_node = moving_node.next
+                node_before_move = node_before_move.next
+
+            node_before_move.next = moving_node.next
+            moving_node.next = None
+            end_node = self.head
+
+            while end_node.next:
+                end_node = end_node.next
+            end_node.next = moving_node
+            node_before_moving_index += 1
+        print("final")
+        self.print_list_and_len()
+
     def make_list_even_then_odd(self, total_rounds, start_node=0):
         rounds = total_rounds
         start = start_node
@@ -93,4 +118,5 @@ ll.add_new_node_to_end(5)
 ll.add_new_node_to_end(6)
 ll.add_new_node_to_end(7)
 ll.add_new_node_to_end(8)
-ll.call_even_then_odd()
+# ll.call_even_then_odd()
+ll.make_list_even_then_odd_better()
